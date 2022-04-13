@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=E-Uctas Application
+Name[tr]=E-Uctas Uygulaması
+Type=Application
+Comment=Simple Qt based E-Uctas Application
+Comment[tr]=Basit Qt tabanlı E-Uctas Uygulaması
+Terminal=false
+Exec=/usr/bin/e-uctas
+Icon=/usr/share/e-uctas/e-uctas.svg
+Categories=Qt;Game;LogicGame;
+Keywords=oyun;uctas;mul;
+GenericName=E-Uctas
