@@ -1,0 +1,2 @@
+# e-uctas
+Üçtaş oyunu
