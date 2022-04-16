@@ -586,7 +586,7 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
                "color:rgba(200,200,200,0);"
               "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
                 butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
-                butonSayilarListe[1]->setIcon(QIcon(":/icons/blue.png"));
+                butonSayilarListe[i]->setIcon(QIcon(":/icons/blue.png"));
 
             }
             if(butonSayilarListe[i]->text().toInt()==a2&&butonSayilarListe[i]->toolTip().toInt()==player)
@@ -597,7 +597,7 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
                                                     "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
                 butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
-                butonSayilarListe[1]->setIcon(QIcon(":/icons/blue.png"));
+                butonSayilarListe[i]->setIcon(QIcon(":/icons/blue.png"));
 
             }
             if(butonSayilarListe[i]->text().toInt()==a3&&butonSayilarListe[i]->toolTip().toInt()==player)
@@ -608,7 +608,7 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
                                                     "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
                 butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
-                butonSayilarListe[1]->setIcon(QIcon(":/icons/blue.png"));
+                butonSayilarListe[i]->setIcon(QIcon(":/icons/blue.png"));
 
             }
         }
@@ -627,7 +627,7 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
                                                     "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
                 butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
-                butonSayilarListe[1]->setIcon(QIcon(":/icons/red.png"));
+                butonSayilarListe[i]->setIcon(QIcon(":/icons/red.png"));
 
             }
             if(butonSayilarListe[i]->text().toInt()==a2&&butonSayilarListe[i]->toolTip().toInt()==player)
@@ -638,7 +638,7 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
                                                     "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
                 butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
-                butonSayilarListe[1]->setIcon(QIcon(":/icons/red.png"));
+                butonSayilarListe[i]->setIcon(QIcon(":/icons/red.png"));
             }
             if(butonSayilarListe[i]->text().toInt()==a3&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
@@ -648,7 +648,7 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
                                                     "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
                 butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
-                butonSayilarListe[1]->setIcon(QIcon(":/icons/red.png"));
+                butonSayilarListe[i]->setIcon(QIcon(":/icons/red.png"));
             }
         }
 
