@@ -172,6 +172,7 @@ int radius=boy*6;
             matrix[i][j].player=0;
             btn->setFixedSize(boy*12,boy*12);
             connect(btn, &QToolButton::clicked, [=]() {
+                if(btn->toolTip().toInt()!=0) return;
                 if(gameFinishStatus==true) return;
                 if(currentPlayer==1){
 
@@ -189,7 +190,7 @@ int radius=boy*6;
                 }
             });
 
-            btn->setStyleSheet("QToolButton{background-color:rgba(200,200,200,200);"
+            btn->setStyleSheet("QToolButton{background-color:rgba(255,255,255,255);"
                                "color:rgba(200,200,200,0);"
                                "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
                                "font-weight: 400;font-size:"+QString::number(fontsize)+"px;}");
@@ -219,9 +220,12 @@ void  MainWindow::player1Click(int btnnumber)
             butonSayilarListe[i-1]->setToolTip(QString::number(currentPlayer));
             matrixMarker(butonSayilarListe[i-1]->text().toInt(),currentPlayer);
             butonSayilarListe[i-1]->setStyleSheet("background-color:rgba(0,0,200,100);"
-                                                  "color:rgba(200,200,200,0);"
-                                                  "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
-                                                                                                                   "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+            "color:rgba(200,200,200,0);"
+            "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+            "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+
+            butonSayilarListe[i-1]->setIconSize(QSize(butonSayilarListe[i-1]->width(),butonSayilarListe[i-1]->height()));
+            butonSayilarListe[i-1]->setIcon(QIcon(":/icons/blue.png"));
 
         }
 
@@ -247,6 +251,8 @@ void  MainWindow::player2Click(int btnnumber)
                                                    "color:rgba(200,200,200,0);"
                                                   "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
                                                                                                                    "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+            butonSayilarListe[i-1]->setIconSize(QSize(butonSayilarListe[i-1]->width(),butonSayilarListe[i-1]->height()));
+            butonSayilarListe[i-1]->setIcon(QIcon(":/icons/red.png"));
 
         }
 
@@ -310,7 +316,7 @@ void MainWindow::matrixMarker(int number,int player)
            if(matrix[i][j].number==number)
            {
                matrix[i][j].player=player;
-               qDebug()<<matrix[i][j].number<<matrix[i][j].player;
+              /// qDebug()<<matrix[i][j].number<<matrix[i][j].player;
            }
        }
 
@@ -575,26 +581,35 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
             if(butonSayilarListe[i]->text().toInt()==a1&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
 
-                butonSayilarListe[i]->setStyleSheet("background-color:rgba(0,0,200,150);"
-                                                    "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+                butonSayilarListe[i]->setStyleSheet("background-color:rgba(0,0,255,255);"
+                                                    "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                "color:rgba(200,200,200,0);"
-                                                                                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+              "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+                butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
+                butonSayilarListe[1]->setIcon(QIcon(":/icons/blue.png"));
+
             }
             if(butonSayilarListe[i]->text().toInt()==a2&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
 
-                butonSayilarListe[i]->setStyleSheet("background-color:rgba(0,0,200,150);"
+                butonSayilarListe[i]->setStyleSheet("background-color:rgba(0,0,255,255);"
                                                       "color:rgba(200,200,200,0);"
-                                                    "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+                                                    "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+                butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
+                butonSayilarListe[1]->setIcon(QIcon(":/icons/blue.png"));
+
             }
             if(butonSayilarListe[i]->text().toInt()==a3&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
 
-                butonSayilarListe[i]->setStyleSheet("background-color:rgba(0,0,200,150);"
+                butonSayilarListe[i]->setStyleSheet("background-color:rgba(0,0,200,255);"
                                                       "color:rgba(200,200,200,0);"
-                                                    "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+                                                    "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+                butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
+                butonSayilarListe[1]->setIcon(QIcon(":/icons/blue.png"));
+
             }
         }
 
@@ -607,26 +622,33 @@ void MainWindow::buttonWinMarker(int a1,int a2,int a3,int player)
             if(butonSayilarListe[i]->text().toInt()==a1&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
 
-                butonSayilarListe[i]->setStyleSheet("background-color:rgba(200,0,0,150);"
+                butonSayilarListe[i]->setStyleSheet("background-color:rgba(255,0,0,255);"
                                                       "color:rgba(200,200,200,0);"
-                                                    "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+                                                    "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+                butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
+                butonSayilarListe[1]->setIcon(QIcon(":/icons/red.png"));
+
             }
             if(butonSayilarListe[i]->text().toInt()==a2&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
 
-                butonSayilarListe[i]->setStyleSheet("background-color:rgba(200,0,0,150);"
+                butonSayilarListe[i]->setStyleSheet("background-color:rgba(255,0,0,255);"
                                                       "color:rgba(200,200,200,0);"
-                                                    "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+                                                    "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+                butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
+                butonSayilarListe[1]->setIcon(QIcon(":/icons/red.png"));
             }
             if(butonSayilarListe[i]->text().toInt()==a3&&butonSayilarListe[i]->toolTip().toInt()==player)
             {
 
-                butonSayilarListe[i]->setStyleSheet("background-color:rgba(200,0,0,150);"
+                butonSayilarListe[i]->setStyleSheet("background-color:rgba(255,0,0,255);"
                                                       "color:rgba(200,200,200,0);"
-                                                    "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
+                                                    "border: 3px solid green;border-radius: "+QString::number(radius)+"px;"
                                                     "font-weight: 400;font-size:"+QString::number(fontsize)+"px;");
+                butonSayilarListe[i]->setIconSize(QSize(butonSayilarListe[i]->width(),butonSayilarListe[i]->height()));
+                butonSayilarListe[1]->setIcon(QIcon(":/icons/red.png"));
             }
         }
 

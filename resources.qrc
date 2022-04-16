@@ -6,5 +6,7 @@
         <file>icons/pchuman.svg</file>
         <file>icons/back.png</file>
         <file>icons/e-uctas.svg</file>
+        <file>icons/blue.png</file>
+        <file>icons/red.png</file>
     </qresource>
 </RCC>
