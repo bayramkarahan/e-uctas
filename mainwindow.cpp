@@ -191,7 +191,7 @@ int radius=boy*6;
             });
 
             btn->setStyleSheet("QToolButton{background-color:rgba(255,255,255,255);"
-                               "color:rgba(200,200,200,0);"
+                               "color:rgba(200,200,200,255);"
                                "border: 1px solid gray;border-radius: "+QString::number(radius)+"px;"
                                "font-weight: 400;font-size:"+QString::number(fontsize)+"px;}");
 
@@ -266,25 +266,113 @@ void MainWindow::player1AutoSelectClick()
 {
     // player1Click(5);
     player1AutoSelectList.clear();
+      player2AutoSelectList.clear();
     for(int j=1;j<=9;j++)
     {
        if(butonSayilarListe[j-1]->toolTip()=="0")
+       {
        player1AutoSelectList.append(butonSayilarListe[j-1]->text().toInt());
+        player2AutoSelectList.append(butonSayilarListe[j-1]->text().toInt());
+       }
     }
 
      srand (time(NULL));
      int randomNumber = rand() % player1AutoSelectList.count() + 1;//1-9 random size sayiListe.count()=36
-    // qDebug()<<"auto select player1 number:"<<randomNumber<<player1AutoSelectList.count()<<player1AutoSelectList<<player1AutoSelectList[randomNumber-1];
+    /// qDebug()<<"auto select player1 number:"<<player1AutoSelectList;
+   /*  for(int i=0;i<player1AutoSelectList.count();i++)
+     {
+         for(int j=0;j<=8;j++)
+         {
+             if(butonSayilarListe[j]->toolTip().toInt()==0&&
+                     butonSayilarListe[j]->text().toInt()==player1AutoSelectList[i])
+             {
+
+                 if(j-1>-1&&butonSayilarListe[j-1]->toolTip().toInt()==2)
+                  qDebug()<<"auto select:"<<butonSayilarListe[j]->text().toInt();
+
+
+             }
+         }
+     }
+
+     /**************************************************/
+    player2AutoSelectList.clear();
+    for(int i=0;i<=2;i++)
+     {
+         for(int j=0;j<=2;j++)
+         {
+             //ust
+             if(matrix[i][j].player==0&&i-1>-1&&matrix[i-1][j].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             //alt
+             if(matrix[i][j].player==0&&i+1<3&&matrix[i+1][j].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             //sol
+             if(matrix[i][j].player==0&&j-1>-1&&matrix[i][j-1].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             //sağ
+             if(matrix[i][j].player==0&&j+1<3&&matrix[i][j+1].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             /****************************************/
+             //ust-sol
+             if(matrix[i][j].player==0&&i-1>-1&&j-1>-1&&matrix[i-1][j-1].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             //alt-sol
+             if(matrix[i][j].player==0&&i+1<3&&j-1>-1&&matrix[i+1][j-1].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             //ust-sag
+             if(matrix[i][j].player==0&&i-1>-1&&j+1<3&&matrix[i-1][j+1].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+             //alt-sag
+             if(matrix[i][j].player==0&&i+1<3&&j+1<3&&matrix[i+1][j+1].player==2)
+                 player2AutoSelectList.append(matrix[i][j].number);
+
+
+         }
+     }
+    if(player2AutoSelectList.count()==0)
+    {
+        for(int j=1;j<=9;j++)
+        {
+           if(butonSayilarListe[j-1]->toolTip()=="0")
+           {
+          // player1AutoSelectList.append(butonSayilarListe[j-1]->text().toInt());
+            player2AutoSelectList.append(butonSayilarListe[j-1]->text().toInt());
+           }
+        }
+    }
+   // tempPlayer2AutoSelectList.clear();
+   ///  qDebug()<<"auto select player2 number:"<<player2AutoSelectList;
+     for(int i=0;i<player2AutoSelectList.count();i++)
+     {
+         //player2AutoSelectList.removeOne(player2AutoSelectList[i]);
+         for(int j=0;j<player2AutoSelectList.count();j++)
+         {
+           if(i!=j&&player2AutoSelectList[i]==player2AutoSelectList[j])
+           {
+              player2AutoSelectList.removeAt(j);
+               break;
+           }
+         }
+     }
     // player1Click(player1[player1AutoSelectList[randomNumber-1]-1]->text().toInt());
      //  player1Click(5);
+  ///   qDebug()<<"auto select player2 --number:"<<player2AutoSelectList;
+/*********************************************/
+     srand (time(NULL));
+     int random2Number = rand() % player2AutoSelectList.count() + 1;//1-9 random size sayiListe.count()=36
+
+     /*******************************************************/
      for(int i=0;i<9;i++)
      {
-      if(butonSayilarListe[i]->text().toInt()==player1AutoSelectList[randomNumber-1])
-      {
-          //player1AutoSelectList.removeAt(i);
-         // qDebug()<<"auto select player1 number:"<<player1[i]->text().toInt();
-           player1Click(butonSayilarListe[i]->text().toInt());
-      }
+
+             if(butonSayilarListe[i]->text().toInt()==player2AutoSelectList[random2Number-1])
+             {
+                 //player1AutoSelectList.removeAt(i);
+                 // qDebug()<<"auto select player1 number:"<<player1[i]->text().toInt();
+                 player1Click(butonSayilarListe[i]->text().toInt());
+             }
+
      }
 }
 void MainWindow::addSayiListe()
@@ -433,7 +521,7 @@ void MainWindow::player1WinControl()
        //hayirButton =msgBox.addButton(tr("Hayır"), QMessageBox::ActionRole);
 
            msgBox.exec();*/
-           statusLabel->setText("Oyunu MAVİ Oyuncu Kazandı..");
+           statusLabel->setText("MAVİ Oyuncu Kazandı..");
            gameFinishStatus=true;///oyun bitti
           /* if(msgBox.clickedButton()==evetButton)
            {
@@ -558,7 +646,7 @@ void MainWindow::player2WinControl()
 
            msgBox.exec();
            */
-        statusLabel->setText("Oyunu KIRMIZI Oyuncu Kazandı..");
+        statusLabel->setText("KIRMIZI Oyuncu Kazandı..");
 
            gameFinishStatus=true;///oyun bitti
 

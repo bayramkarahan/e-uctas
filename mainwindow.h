@@ -56,6 +56,7 @@ private:
     QList<QToolButton*> player2;
     QList<int> player1AutoSelectList;
     QList<int> player2AutoSelectList;
+    QList<int> tempPlayer2AutoSelectList;
 
     QLabel *statusLabel;
    // QWidget *sayiListeWidget;
@@ -65,6 +66,7 @@ private:
     QGridLayout *mLayout;
     int selectNumberPlayer1=0;
     int selectNumberPlayer2=0;
+
     QWidget *slw;
      mx matrix[6][6];
     bool newGameStatus=false;
