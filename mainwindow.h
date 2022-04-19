@@ -47,6 +47,8 @@ public slots:
     void player1Click(int btnnumber);
     void player2Click(int btnnumber);
     void player1AutoSelectClick();
+     void player2AutoSelectClick();
+      void player3AutoSelectClick();
     void buttonWinMarker(int a1, int a2, int a3, int player);
 private:
     int boy;
@@ -56,7 +58,7 @@ private:
     QList<QToolButton*> player2;
     QList<int> player1AutoSelectList;
     QList<int> player2AutoSelectList;
-    QList<int> tempPlayer2AutoSelectList;
+    QList<int> player3AutoSelectList;
 
     QLabel *statusLabel;
    // QWidget *sayiListeWidget;
@@ -68,7 +70,7 @@ private:
     int selectNumberPlayer2=0;
 
     QWidget *slw;
-     mx matrix[6][6];
+     mx matrix[3][3];
     bool newGameStatus=false;
     bool gameFinishStatus=false;
     bool newGameKind=false;
@@ -77,7 +79,10 @@ private:
     QMediaPlayer* winplayer;
    int fontsize=25;
    int currentPlayer=0;
-
+    int tasSayisi=9;
+    int satirSayisi=3;
+    int sutunSayisi=3;
+    int level=1;//1=basit 2=orta 3=zor
 
 };
 
